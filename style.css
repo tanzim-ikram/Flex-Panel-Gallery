@@ -19,6 +19,7 @@ body {
 .panels {
     min-height: 100vh;
     overflow: hidden;
+    display: flex;
 }
 
 .panel {
@@ -36,6 +37,11 @@ body {
     font-size: 20px;
     background-size: cover;
     background-position: center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .panel1 {
@@ -58,11 +64,32 @@ body {
     background-image: url(https://static.toiimg.com/thumb/msid-96617591,width-748,height-499,resizemode=4,imgsize-30618/Majestic-mountain-ranges-in-India-for-the-adventurous-soul.jpg);
 }
 
-/* Flex Children */
+/* Flex Items */
 .panel>* {
     margin: 0;
     width: 100%;
     transition: transform 0.5s;
+    border: 1px solid red;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel>*:first-child {
+    transform: translateY(-100%);
+}
+
+.panel.open-active>*:first-child {
+    transform: translateY(0);
+}
+
+.panel>*:last-child {
+    transform: translateY(100%);
+}
+
+.panel.open-active>*:last-child {
+    transform: translateY(0);
 }
 
 .panel p {
@@ -78,4 +105,5 @@ body {
 
 .panel.open {
     font-size: 40px;
+    flex: 5;
 }
